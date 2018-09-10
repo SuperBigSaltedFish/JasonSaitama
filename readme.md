@@ -8,4 +8,12 @@ I wanna use React&Webpack for views, Flask for back-end, and maybe Docker for de
 
 Emmmmm, I dont have anything else to say.
 
-Let's have fun. 
+Let's have fun:
+
+To run this project, you need install npm first.
+
+Then clone this project, run 'npm install'
+
+After dependencies installed, run 'npm start'
+
+You'll see a website on http://0.0.0.0:9727/ 
