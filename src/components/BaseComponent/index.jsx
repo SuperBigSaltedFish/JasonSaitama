@@ -1,33 +1,38 @@
 import React from 'react'
-import { Component } from 'react'
 import PropTypes from 'prop-types'
 import assign from 'object-assign'
-import BC from '../components/BaseComponent/index.jsx'
-import store from '../store/index.js'
+import { Component } from 'react'
 import { observer } from "mobx-react";
+import { action } from "mobx";
+
+import './index.less'
 
 @observer
-class App extends Component {
+class BaseComponent extends Component {
   static propTypes = {
     style: PropTypes.object,
+    store: PropTypes.object,
   };
 
   static defaultProps = {
     style: {},
+    store: {},
   };
+
+  componentDidMount() {
+  }
+
 
   render() {
     const wrapStyle = assign({}, this.props.style)
 
     return (
-      <div className="main_container" style={wrapStyle}>
-        this is main container {store.state1}
-        <BC
-          style={{color: "green"}}
-        />
+      <div className="base_component" style={wrapStyle}>
+        this is base component
       </div>
     );
   }
 }
 
-export default App;
+export default BaseComponent;
+
