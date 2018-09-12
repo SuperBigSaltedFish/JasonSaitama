@@ -1,8 +1,7 @@
-import './js/clock-core.js'
-import './styles/main.less'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './app/index.jsx'
+import './js/clock-core.js'
 
 
 ReactDOM.render(
