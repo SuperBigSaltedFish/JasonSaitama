@@ -6,8 +6,9 @@ import { observer } from "mobx-react";
 
 import './index.less'
 
+
 @observer
-class BaseComponent extends Component {
+class EndButton extends Component {
   static propTypes = {
     style: PropTypes.object,
     store: PropTypes.object,
@@ -21,17 +22,24 @@ class BaseComponent extends Component {
   componentDidMount() {
   }
 
+  handleClickEnd = () => {
+    this.props.store.endClock()
+  }
 
   render() {
     const wrapStyle = assign({}, this.props.style)
 
     return (
-      <div className="base_component" style={wrapStyle}>
-        this is base component
+      <div
+        className="end_button"
+        style={wrapStyle}
+        onClick={this.handleClickEnd}
+      >
+        结束
       </div>
     );
   }
 }
 
-export default BaseComponent;
+export default EndButton;
 

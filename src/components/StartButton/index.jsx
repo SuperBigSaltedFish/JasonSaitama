@@ -7,7 +7,7 @@ import { observer } from "mobx-react";
 import './index.less'
 
 @observer
-class BaseComponent extends Component {
+class StartButton extends Component {
   static propTypes = {
     style: PropTypes.object,
     store: PropTypes.object,
@@ -21,17 +21,24 @@ class BaseComponent extends Component {
   componentDidMount() {
   }
 
+  handleClickStart = () => {
+    this.props.store.runClock()
+  }
 
   render() {
     const wrapStyle = assign({}, this.props.style)
 
     return (
-      <div className="base_component" style={wrapStyle}>
-        this is base component
+      <div
+        className="start_button"
+        style={wrapStyle}
+        onClick={this.handleClickStart}
+      >
+        开始
       </div>
     );
   }
 }
 
-export default BaseComponent;
+export default StartButton;
 

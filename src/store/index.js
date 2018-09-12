@@ -1,12 +1,27 @@
 import { types as MSTTypes } from 'mobx-state-tree'
 
 const Store = MSTTypes.model({
-  state1: 'default',
-  state2: 1,
+  clockCountStart: false,
+  workStarted: false,
+  clockCount: 0,
+  clockCountTotal: 0,
 }).actions(self => ({
-  change (someStr) {
-    self.state1 = someStr
-  }
+  runClock () {
+    self.clockCountStart = true
+    self.clockCount = 0
+  },
+  endClock () {
+    self.clockCountStart = false
+    self.workStarted = false
+  },
+  startWork () {
+    self.workStarted = true
+  },
+  takeRest () {
+    self.workStarted = false
+    self.clockCount  += 1
+    self.clockCountTotal += 1
+  },
 }))
 
 const store = Store.create({

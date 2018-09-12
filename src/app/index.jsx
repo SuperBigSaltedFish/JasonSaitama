@@ -1,10 +1,15 @@
 import React from 'react'
 import { Component } from 'react'
+import { observer } from "mobx-react";
 import PropTypes from 'prop-types'
 import assign from 'object-assign'
-import BC from '../components/BaseComponent/index.jsx'
+import {
+  StartButton,
+  EndButton,
+} from '../components'
 import store from '../store/index.js'
-import { observer } from "mobx-react";
+
+import './index.less'
 
 @observer
 class App extends Component {
@@ -18,12 +23,13 @@ class App extends Component {
 
   render() {
     const wrapStyle = assign({}, this.props.style)
-
     return (
       <div className="main_container" style={wrapStyle}>
-        this is main container {store.state1}
-        <BC
-          style={{color: "green"}}
+        <StartButton
+          store={store}
+        />
+        <EndButton
+          store={store}
         />
       </div>
     );
